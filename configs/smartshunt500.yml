@@ -1,0 +1,13 @@
+serial:
+  path: /dev/ttyUSB0
+  baudRate: 19200
+  dataBits: 8
+  stopBits: 1
+  parity: N
+gauges:
+  - name: "battery_volts"
+    help: "Main battery voltage"
+    # matches the thing from ve-direct
+    label: "V" 
+    multiplier: 0.01
+# TODO: OTHERS
