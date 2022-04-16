@@ -1,0 +1,7 @@
+{
+    "cSpell.words": [
+        "Victron"
+    ],
+    "go.lintTool": "golangci-lint",
+    "go.testFlags": ["-race"],
+}
