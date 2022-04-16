@@ -5,6 +5,7 @@ serial:
   dataBits: 7
   stopBits: 2
   parity: Y
+  timeout: 60m
 gauges:
   - name: "battery_volts"
     help: "Main battery voltage"

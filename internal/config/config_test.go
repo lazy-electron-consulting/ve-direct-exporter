@@ -3,6 +3,7 @@ package config_test
 import (
 	"embed"
 	"testing"
+	"time"
 
 	"github.com/lazy-electron-consulting/ve-direct-exporter/internal/config"
 	"github.com/stretchr/testify/require"
@@ -28,6 +29,7 @@ func TestParseYaml(t *testing.T) {
 					DataBits: 7,
 					StopBits: 2,
 					Parity:   "Y",
+					Timeout:  time.Hour,
 				},
 				Gauges: []config.Gauge{
 					{
@@ -49,6 +51,7 @@ func TestParseYaml(t *testing.T) {
 					DataBits: config.DefaultDataBits,
 					StopBits: config.DefaultStopBits,
 					Parity:   config.DefaultParity,
+					Timeout:  config.DefaultTimeout,
 				},
 			},
 		},
