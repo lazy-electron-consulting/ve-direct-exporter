@@ -1,0 +1,14 @@
+address: :9090
+serial:
+  path: /dev/ttyUSB0
+  baudRate: 9600
+  dataBits: 7
+  stopBits: 2
+  parity: Y
+  timeout: 60m
+subsystem: test
+gauges:
+  - name: battery_volts
+    help: Main battery voltage
+    label: V
+    multiplier: 0.01

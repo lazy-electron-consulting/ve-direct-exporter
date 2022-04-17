@@ -1,0 +1,4 @@
+serial:
+  path: /dev/ttyUSB1
+gauges:
+  - name: foo

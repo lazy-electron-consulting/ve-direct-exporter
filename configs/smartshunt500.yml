@@ -1,0 +1,19 @@
+serial:
+  path: /dev/ttyUSB0
+  baudRate: 19200
+  dataBits: 8
+  stopBits: 1
+  parity: N
+subsystem: smart_shunt
+gauges:
+  - name: battery_volts
+    help: Main battery voltage
+    label: V 
+    multiplier: 0.001
+  - name: battery_amps
+    help: Main battery current
+    label: I 
+    multiplier: 0.001
+  - name: time_remaining_minutes
+    help: How long until the battery is empty
+    label: TTG

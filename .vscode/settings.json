@@ -3,5 +3,12 @@
         "Victron"
     ],
     "go.lintTool": "golangci-lint",
-    "go.testFlags": ["-race"],
+    "go.testFlags": ["-race", "-count=1"],
+    "go.addTags": {
+        "tags": "json,yaml",
+        "options": "json=omitempty,yaml=omitempty",
+        "promptForTags": false,
+        "transform": "camelcase",
+        "template": ""
+    }
 }
