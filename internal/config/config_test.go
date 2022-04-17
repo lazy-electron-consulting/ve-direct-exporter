@@ -31,6 +31,7 @@ func TestParseYaml(t *testing.T) {
 					Parity:   "Y",
 					Timeout:  time.Hour,
 				},
+				Subsystem: "test",
 				Gauges: []config.Gauge{
 					{
 						Name:       "battery_volts",
@@ -52,6 +53,12 @@ func TestParseYaml(t *testing.T) {
 					StopBits: config.DefaultStopBits,
 					Parity:   config.DefaultParity,
 					Timeout:  config.DefaultTimeout,
+				},
+				Gauges: []config.Gauge{
+					{
+						Name:       "foo",
+						Multiplier: 1,
+					},
 				},
 			},
 		},

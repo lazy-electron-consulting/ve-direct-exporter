@@ -40,19 +40,27 @@ type Gauge struct {
 	Name       string  `json:"name,omitempty" yaml:"name,omitempty"`
 	Label      string  `json:"label,omitempty" yaml:"label,omitempty"`
 	Help       string  `json:"help,omitempty" yaml:"help,omitempty"`
-	Multiplier float32 `json:"multiplier,omitempty" yaml:"multiplier,omitempty"`
+	Multiplier float64 `json:"multiplier,omitempty" yaml:"multiplier,omitempty"`
+}
+
+func (g *Gauge) defaults() {
+	g.Multiplier = util.Default(g.Multiplier, 1)
 }
 
 type Config struct {
-	Address string  `json:"address,omitempty" yaml:"address,omitempty"`
-	Serial  Serial  `json:"serial,omitempty" yaml:"serial,omitempty"`
-	Gauges  []Gauge `json:"gauges,omitempty" yaml:"gauges,omitempty"`
+	Address   string  `json:"address,omitempty" yaml:"address,omitempty"`
+	Subsystem string  `json:"subsystem,omitempty" yaml:"subsystem,omitempty"`
+	Serial    Serial  `json:"serial,omitempty" yaml:"serial,omitempty"`
+	Gauges    []Gauge `json:"gauges,omitempty" yaml:"gauges,omitempty"`
 }
 
 func (c *Config) defaults() {
 	c.Address = util.Default(c.Address, DefaultAddress)
 	c.Serial.defaults()
-
+	for i, g := range c.Gauges {
+		g.defaults()
+		c.Gauges[i] = g
+	}
 }
 
 func ParseYaml(r io.Reader) (*Config, error) {
